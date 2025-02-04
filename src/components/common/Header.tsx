@@ -28,16 +28,16 @@ function Header() {
       <nav className='auth'>
         <ul>
           <li>
-            <a href='/login'>
+            <Link to='/login'>
               <FaSignInAlt />
               로그인
-            </a>
+            </Link>
           </li>
           <li>
-            <a href='/login'>
+            <Link to='/signup'>
               <FaRegUser />
               회원가입
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
