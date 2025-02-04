@@ -2,18 +2,10 @@ import { styled } from "styled-components";
 import logo from "../../assets/images/logo.png";
 import { FaRegUser, FaSignInAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { Category } from "../../models/category.model";
-import { useEffect, useState } from "react";
-import { fetchCategory } from "../../api/category.api";
+import { useCategory } from "../../hooks/useCategory";
 
 function Header() {
-  const [category, setCategory] = useState<Category[]>([]);
-
-  useEffect(() => {
-    fetchCategory().then((category) => {
-      setCategory(category);
-    });
-  }, []);
+  const { category } = useCategory();
 
   return (
     <HeaderStyle>
