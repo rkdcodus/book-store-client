@@ -6,6 +6,7 @@ import Error from "./components/common/Error.tsx";
 import Signup from "./pages/Signup.tsx";
 import ResetPassword from "./pages/ResetPassword.tsx";
 import Login from "./pages/Login.tsx";
+import Books from "./pages/Books.tsx";
 
 const router = createBrowserRouter([
   {
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
     path: "/books",
     element: (
       <Layout>
-        <div>도서 목록</div>
+        <Books></Books>
       </Layout>
     ),
   },
