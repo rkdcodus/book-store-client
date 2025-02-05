@@ -26,12 +26,17 @@ function Login() {
   } = useForm<SignupProps>();
 
   const onSubmit = (data: SignupProps) => {
-    login(data).then((res) => {
-      storeLogin(res.token);
+    login(data).then(
+      (res) => {
+        storeLogin(res.token);
 
-      showAlert("로그인 완료되었습니다.");
-      navigate("/");
-    });
+        showAlert("로그인 완료되었습니다.");
+        navigate("/");
+      },
+      (error) => {
+        showAlert("로그인 실패했습니다.");
+      }
+    );
   };
 
   return (
