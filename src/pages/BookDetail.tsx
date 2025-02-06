@@ -50,7 +50,6 @@ function BookDetail() {
   const { bookId } = useParams();
   const { book, likeToggle } = useBook(bookId);
 
-  console.log(book);
   if (!book) return null;
 
   return (
