@@ -1,4 +1,4 @@
-import { Book } from "../models/book.model";
+import { Book, BookDetail } from "../models/book.model";
 import { Pagination } from "../models/pagination.mode";
 import { httpClient } from "./http";
 
@@ -30,4 +30,9 @@ export const fetchBooks = async (params: FetchBooksParams) => {
       },
     };
   }
+};
+
+export const fetchBook = async (bookId: string) => {
+  const response = await httpClient.get<BookDetail>(`/book/${bookId}`);
+  return response.data;
 };
