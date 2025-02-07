@@ -10,15 +10,20 @@ interface Props {
   cart: Cart;
   checkedItems: number[];
   onCheck: (id: number) => void;
+  onDelete: (id: number) => void;
 }
 
-function CartItem({ cart, checkedItems, onCheck }: Props) {
+function CartItem({ cart, checkedItems, onCheck, onDelete }: Props) {
   const isChecked = useMemo(() => {
     return checkedItems.includes(cart.orderId);
   }, [checkedItems, cart.orderId]);
 
   const handleCheck = () => {
     onCheck(cart.orderId);
+  };
+
+  const handleDelete = () => {
+    onDelete(cart.orderId);
   };
 
   return (
@@ -32,7 +37,7 @@ function CartItem({ cart, checkedItems, onCheck }: Props) {
           <p className='quantity'>{cart.quantity}권</p>
         </div>
       </div>
-      <Button size='medium' scheme='normal'>
+      <Button size='medium' scheme='normal' onClick={handleDelete}>
         장바구니 삭제
       </Button>
     </CartItemStyle>

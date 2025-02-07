@@ -5,7 +5,7 @@ import { useCart } from "../hooks/useCart";
 import { useState } from "react";
 
 function Cart() {
-  const { carts } = useCart();
+  const { carts, deleteCartItem } = useCart();
 
   const [checkedItems, setCheckedItems] = useState<number[]>([]);
 
@@ -15,6 +15,10 @@ function Cart() {
     } else {
       setCheckedItems([...checkedItems, id]);
     }
+  };
+
+  const handleDelete = (id: number) => {
+    deleteCartItem(id);
   };
 
   return (
@@ -28,6 +32,7 @@ function Cart() {
               key={cart.orderId}
               checkedItems={checkedItems}
               onCheck={handleCheckItem}
+              onDelete={handleDelete}
             />
           ))}
         </div>
