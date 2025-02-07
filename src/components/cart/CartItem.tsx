@@ -56,7 +56,12 @@ const CartItemStyle = styled.div`
 
   .info {
     display: flex;
+    align-items: start;
+    flex: 1;
     gap: 10px;
+    .check {
+      flex-shrink: 0;
+    }
   }
 
   p {

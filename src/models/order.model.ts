@@ -15,3 +15,26 @@ export interface Order {
   created_at: string;
   orders: OrderItem[];
 }
+
+export interface OrderSheet {
+  orderSheet: OrderSheetDelivery;
+  orderIds: number[];
+}
+
+export type OrderSummary = {
+  orderSheet: {
+    totalPrice: number;
+  };
+  orderIds: number[];
+  totalQuantity: number;
+};
+
+export interface Delivery {
+  address: string;
+  receiver: string;
+  contact: string;
+}
+
+export interface OrderSheetDelivery extends Delivery {
+  totalPrice: number;
+}
