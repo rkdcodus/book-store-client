@@ -3,9 +3,11 @@ import Title from "../components/common/Title";
 import CartItem from "../components/cart/CartItem";
 import { useCart } from "../hooks/useCart";
 import { useState } from "react";
+import Empty from "../components/common/Empty";
+import { FaShoppingCart } from "react-icons/fa";
 
 function Cart() {
-  const { carts, deleteCartItem } = useCart();
+  const { carts, isEmpty, deleteCartItem } = useCart();
 
   const [checkedItems, setCheckedItems] = useState<number[]>([]);
 
@@ -25,18 +27,29 @@ function Cart() {
     <>
       <Title size='large'>장바구니</Title>
       <CartStyle>
-        <div className='content'>
-          {carts.map((cart) => (
-            <CartItem
-              cart={cart}
-              key={cart.orderId}
-              checkedItems={checkedItems}
-              onCheck={handleCheckItem}
-              onDelete={handleDelete}
-            />
-          ))}
-        </div>
-        <div className='summary'></div>
+        {!isEmpty && (
+          <>
+            <div className='content'>
+              {carts.map((cart) => (
+                <CartItem
+                  cart={cart}
+                  key={cart.orderId}
+                  checkedItems={checkedItems}
+                  onCheck={handleCheckItem}
+                  onDelete={handleDelete}
+                />
+              ))}
+            </div>
+            <div className='summary'></div>
+          </>
+        )}
+        {isEmpty && (
+          <Empty
+            title='장바구니가 비었습니다.'
+            icon={<FaShoppingCart />}
+            description={<>장바구니를 채워보세요.</>}
+          />
+        )}
       </CartStyle>
     </>
   );
