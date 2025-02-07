@@ -10,6 +10,7 @@ import Books from "./pages/Books.tsx";
 import BookDetail from "./pages/BookDetail.tsx";
 import Cart from "./pages/Cart.tsx";
 import Order from "./pages/Order.tsx";
+import OrderList from "./pages/OrderList.tsx";
 
 const router = createBrowserRouter([
   {
@@ -78,6 +79,14 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <Order />
+      </Layout>
+    ),
+  },
+  {
+    path: "/orderlist",
+    element: (
+      <Layout>
+        <OrderList />
       </Layout>
     ),
   },
