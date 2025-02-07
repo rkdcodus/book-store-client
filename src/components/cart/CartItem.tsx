@@ -54,6 +54,11 @@ const CartItemStyle = styled.div`
   border-radius: ${({ theme }) => theme.borderRadius.default};
   padding: 12px;
 
+  .info {
+    display: flex;
+    gap: 10px;
+  }
+
   p {
     padding: 0 0 8px 0;
     margin: 0;
