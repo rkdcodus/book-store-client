@@ -9,7 +9,7 @@ interface FetchBooksParams {
   limit: number;
 }
 
-interface FetchBooksResponse {
+export interface FetchBooksResponse {
   books: Book[];
   pagination: Pagination;
 }
