@@ -12,85 +12,54 @@ import Cart from "./pages/Cart.tsx";
 import Order from "./pages/Order.tsx";
 import OrderList from "./pages/OrderList.tsx";
 
-const router = createBrowserRouter([
+const routerList = [
   {
     path: "/",
-    element: (
-      <Layout>
-        <Home />
-      </Layout>
-    ),
-    errorElement: (
-      <Layout>
-        <Error />
-      </Layout>
-    ),
+    element: <Home />,
   },
   {
     path: "/books",
-    element: (
-      <Layout>
-        <Books></Books>
-      </Layout>
-    ),
+    element: <Books></Books>,
   },
   {
     path: "/signup",
-    element: (
-      <Layout>
-        <Signup />
-      </Layout>
-    ),
+    element: <Signup />,
   },
   {
     path: "/reset",
-    element: (
-      <Layout>
-        <ResetPassword />
-      </Layout>
-    ),
+    element: <ResetPassword />,
   },
   {
     path: "/login",
-    element: (
-      <Layout>
-        <Login />
-      </Layout>
-    ),
+    element: <Login />,
   },
   {
     path: "/book/:bookId",
-    element: (
-      <Layout>
-        <BookDetail />
-      </Layout>
-    ),
+    element: <BookDetail />,
   },
   {
     path: "/cart",
-    element: (
-      <Layout>
-        <Cart />
-      </Layout>
-    ),
+    element: <Cart />,
   },
   {
     path: "/order",
-    element: (
-      <Layout>
-        <Order />
-      </Layout>
-    ),
+    element: <Order />,
   },
   {
     path: "/orderlist",
-    element: (
-      <Layout>
-        <OrderList />
-      </Layout>
-    ),
+    element: <OrderList />,
   },
-]);
+];
+
+const router = createBrowserRouter(
+  routerList.map((item) => {
+    return {
+      ...item,
+      element: <Layout>{item.element}</Layout>,
+      errorElement: <Error />,
+    };
+  })
+);
 
 function App() {
   return (
